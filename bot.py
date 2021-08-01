@@ -19,7 +19,7 @@ async def on_ready():
 #@client.command(aliases=['대체','대체','대체'])  
 @client.command()
 async def test(ctx, *args):
-    await ctx.send('{} arguments: {}'.format(len(args), ', '.join(args)))
+    await ctx.send('{}'.format(' '.join(args)))
 
 @client.command()
 async def 전역(ctx):
