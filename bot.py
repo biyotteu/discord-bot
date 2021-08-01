@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
-client = commands.Bot(command_prefix = '-')
+client = commands.Bot(command_prefix = '회륜아 ')
 
 @client.event
 async def on_ready():
@@ -14,11 +14,11 @@ async def on_ready():
   #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="노래 듣는중"))
   #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="영상 시청중"))
   
-# @bot.command()
-# async def test(ctx, arg):
-#     await ctx.send(arg)
-
 @bot.command()
+async def test(ctx, arg):
+    await ctx.send(arg)
+
+@client.command()
 async def 전역(ctx):
     await ctx.send('51234')
 
