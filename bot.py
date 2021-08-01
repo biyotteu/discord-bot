@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
-client = commands.Bot(command_prefix = '회륜아')
+client = commands.Bot(command_prefix = '회륜아 ')
 
 @client.event
 async def on_ready():
@@ -18,5 +18,9 @@ async def on_ready():
 @bot.command()
 async def test(ctx, arg):
     await ctx.send(arg)
+
+@bot.command()
+async def 전역(ctx):
+    await ctx.send('51234')
 
 client.run(os.environ['token'])
