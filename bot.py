@@ -16,13 +16,17 @@ async def on_ready():
   #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="노래 듣는중"))
   #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="영상 시청중"))
 
-#@client.command(aliases=['대체','대체','대체'])  
+#@client.command(aliases=['대체','대체','대체'])   
 @client.command()
 async def test(ctx, *args):
     await ctx.send('{}'.format(' '.join(args)))
 
-@client.command()
+@client.command(aliases=['D-Day','D-day','d-day','남은날','전역일','복무기간'])
 async def 전역(ctx):
     await ctx.send('D-' + str((time-datetime.now()).days))
+
+@client.command()
+async def 응애(ctx):
+    await ctx.send('응애 나 아가 회륜이><')
 
 client.run(os.environ['token'])
