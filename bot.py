@@ -15,10 +15,11 @@ async def on_ready():
   #await client.change_presence(activity=discord.Streaming(name="스트림 방송중", url='링크'))
   #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="노래 듣는중"))
   #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="영상 시청중"))
-  
+
+#@client.command(aliases=['대체','대체','대체'])  
 @client.command()
-async def test(ctx, arg):
-    await ctx.send(arg)
+async def test(ctx, *args):
+    await ctx.send('{} arguments: {}'.format(len(args), ', '.join(args)))
 
 @client.command()
 async def 전역(ctx):
