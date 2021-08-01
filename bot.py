@@ -1,7 +1,9 @@
 import discord
 from discord.ext import commands
 import os
+from datetime import datetime, timedelta
 
+time = datetime(2023,1,27)
 client = commands.Bot(command_prefix = '회륜아 ')
 
 @client.event
@@ -20,6 +22,6 @@ async def test(ctx, arg):
 
 @client.command()
 async def 전역(ctx):
-    await ctx.send('51234')
+    await ctx.send('D-' + str((time-datetime.now()).days))
 
 client.run(os.environ['token'])
