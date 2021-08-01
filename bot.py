@@ -14,7 +14,7 @@ async def on_ready():
   #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="노래 듣는중"))
   #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="영상 시청중"))
   
-@bot.command()
+@client.command()
 async def test(ctx, arg):
     await ctx.send(arg)
 
