@@ -35,7 +35,6 @@ async def req(ctx,url):
     idx = 0
     size = len(con)
     limit = 2000
-    await ctx.send(con.status_code)
     while True:
         if idx > size:
             break
