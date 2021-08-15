@@ -35,12 +35,13 @@ async def req(ctx,url):
     con = requests.get(url).text
     idx = 0
     size = len(con)
-    while True:
-        if idx > size:
-            break
-        await ctx.send(con[idx:min(size,idx+4000)])
-        idx = idx + 4000
-    await ctx.send()
+    await ctx.send(con.status_code)
+    # while True:
+    #     if idx > size:
+    #         break
+    #     await ctx.send(con[idx:min(size,idx+4000)])
+    #     idx = idx + 4000
+    # await ctx.send()
 
 @client.command()
 async def python(ctx,*,code):
