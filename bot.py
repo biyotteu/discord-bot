@@ -19,8 +19,8 @@ async def on_ready():
 
 #@client.command(aliases=['대체','대체','대체'])   
 @client.command()
-async def test(ctx, *args):
-    await ctx.send('{}'.format(' '.join(args)))
+async def test(ctx, context):
+    await ctx.send(context)
 
 @client.command(aliases=['D-Day','D-day','d-day','남은날','전역일','복무기간'])
 async def 전역(ctx):
@@ -31,7 +31,14 @@ async def 응애(ctx):
     await ctx.send('응애 나 아가 회륜이><')
 
 @client.command()
-async def 코드(ctx):
+async def 코드(ctx,code):
+    f = open("test.py","w")
+    f.write(code)
+    stream = os.popen('python test.py')
+    await ctx.send(stream.read())
+
+@client.command()
+async def pip(ctx):
     stream = os.popen('python test.py')
     await ctx.send(stream.read())
 
