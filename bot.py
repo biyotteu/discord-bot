@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import os
+import time
 from datetime import datetime, timedelta
 
 time = datetime(2023,1,27)
@@ -28,5 +29,12 @@ async def 전역(ctx):
 @client.command()
 async def 응애(ctx):
     await ctx.send('응애 나 아가 회륜이><')
+
+@client.command()
+async def 코드(ctx):
+    os.system('g++ -o test test.cpp')
+    time.sleep(0.5)
+    stream = os.popen('./test')
+    await stream.read()
 
 client.run(os.environ['token'])
