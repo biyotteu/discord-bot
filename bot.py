@@ -32,7 +32,7 @@ async def 응애(ctx):
 
 @client.command()
 async def req(ctx,url):
-    con = requests.get(url).text
+    con = requests.get(url)
     idx = 0
     size = len(con)
     await ctx.send(con.status_code)
