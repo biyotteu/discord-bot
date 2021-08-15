@@ -32,19 +32,27 @@ async def 응애(ctx):
 
 @client.command()
 async def req(ctx,url):
-    await ctx.send(requests.get(url).text)
+    con = requests.get(url).text
+    idx = 0
+    size = len(con)
+    while true:
+        if idx > size:
+            break
+        await ctx.send(con[idx:min(size,idx+4000)])
+        idx = idx + 4000
+    await ctx.send()
 
 @client.command()
-async def 코드(ctx,*,code):
+async def python(ctx,*,code):
     f = open("test.py","w")
     f.write(code)
     f.close()
     stream = os.popen('python test.py')
     await ctx.send(stream.read())
 
-@client.command()
-async def pip(ctx,context):
-    stream = os.popen('pip install '+context)
-    await ctx.send(stream.read())
+# @client.command()
+# async def pip(ctx,context):
+#     stream = os.popen('pip install '+context)
+#     await ctx.send(stream.read())
 
 client.run(os.environ['token'])
