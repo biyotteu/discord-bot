@@ -9,7 +9,6 @@ client = commands.Bot(command_prefix = '회륜아 ')
 
 @client.event
 async def on_ready():
-
   # [discord.Status.online = 온라인],[discord.Status.idle = 자리비움],[discord.Status.dnd = 다른용무],[discord.Status.offline = 오프라인]
   await client.change_presence(status=discord.Status.online)
   await client.change_presence(activity=discord.Game(name="유격훈련"))
@@ -33,15 +32,16 @@ async def 응애(ctx):
 @client.command()
 async def req(ctx,url):
     con = requests.get(url)
-    # idx = 0
-    # size = len(con)
+    idx = 0
+    size = len(con)
+    limit = 2000
     await ctx.send(con.status_code)
-    # while True:
-    #     if idx > size:
-    #         break
-    #     await ctx.send(con[idx:min(size,idx+4000)])
-    #     idx = idx + 4000
-    # await ctx.send()
+    while True:
+        if idx > size:
+            break
+        await ctx.send(con[idx:min(size,idx+limit)])
+        idx = idx + limit
+    await ctx.send()
 
 @client.command()
 async def python(ctx,*,code):
