@@ -31,7 +31,7 @@ async def 응애(ctx):
 
 @client.command()
 async def req(ctx,url):
-    con = requests.get(url)
+    con = requests.get(url).text
     idx = 0
     size = len(con)
     limit = 2000
