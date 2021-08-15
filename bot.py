@@ -32,9 +32,7 @@ async def 응애(ctx):
 
 @client.command()
 async def 코드(ctx):
-    os.system('g++ -o test test.cpp')
-    time.sleep(0.5)
-    stream = os.popen('./test')
+    stream = os.popen('python test.py')
     await stream.read()
 
 client.run(os.environ['token'])
