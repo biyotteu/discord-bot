@@ -35,7 +35,7 @@ async def req(ctx,url):
     con = requests.get(url).text
     idx = 0
     size = len(con)
-    while true:
+    while True:
         if idx > size:
             break
         await ctx.send(con[idx:min(size,idx+4000)])
