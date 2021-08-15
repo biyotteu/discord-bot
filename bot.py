@@ -33,6 +33,6 @@ async def 응애(ctx):
 @client.command()
 async def 코드(ctx):
     stream = os.popen('python test.py')
-    await stream.read()
+    await ctx.send(stream.read())
 
 client.run(os.environ['token'])
