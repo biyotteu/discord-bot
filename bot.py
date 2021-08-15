@@ -19,7 +19,7 @@ async def on_ready():
 
 #@client.command(aliases=['대체','대체','대체'])   
 @client.command()
-async def test(ctx, context):
+async def test(ctx, *,context):
     await ctx.send(context)
 
 @client.command(aliases=['D-Day','D-day','d-day','남은날','전역일','복무기간'])
@@ -38,8 +38,8 @@ async def 코드(ctx,code):
     await ctx.send(stream.read())
 
 @client.command()
-async def pip(ctx):
-    stream = os.popen('python test.py')
+async def pip(ctx,context):
+    stream = os.popen('pip install '+context)
     await ctx.send(stream.read())
 
 client.run(os.environ['token'])
