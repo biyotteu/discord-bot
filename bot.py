@@ -36,10 +36,11 @@ async def req(ctx,url):
 
 @client.command()
 async def 코드(ctx,*,code):
-    f = open("test.py","w")
-    f.write(code)
-    stream = os.popen('python test.py')
-    await ctx.send(stream.read())
+    #f = open("test.py","w")
+    #f.write(code)
+    #stream = os.popen('python test.py')
+    await ctx.send(type(code))
+    #await ctx.send(stream.read())
 
 @client.command()
 async def pip(ctx,context):
