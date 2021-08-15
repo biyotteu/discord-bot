@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 import os
-import time
 from datetime import datetime, timedelta
+import requests
 
 time = datetime(2023,1,27)
 client = commands.Bot(command_prefix = '회륜아 ')
@@ -31,7 +31,11 @@ async def 응애(ctx):
     await ctx.send('응애 나 아가 회륜이><')
 
 @client.command()
-async def 코드(ctx,code):
+async def req(ctx,url):
+    await ctx.send(requests.get(url).text)
+
+@client.command()
+async def 코드(ctx,*,code):
     f = open("test.py","w")
     f.write(code)
     stream = os.popen('python test.py')
