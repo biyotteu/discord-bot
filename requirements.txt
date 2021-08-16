@@ -3,3 +3,4 @@ requests
 asyncio
 numpy
 PyNaCl
+youtube-dl
