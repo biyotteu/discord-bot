@@ -50,6 +50,20 @@ async def python(ctx,*,code):
     stream = os.popen('python test.py')
     await ctx.send(stream.read())
 
+@client.command(pass_context = True)
+async def 이리온(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+    else:
+        await ctx.send("통화방에 없자너 이자슥아")
+
+@client.command()
+async def 나가(ctx,*,code):
+    if(ctx.voice_client):
+        await ctx.guild.voice_client.disconnect()
+        await ctx.send("빠이염")
+    
 # @client.command()
 # async def pip(ctx,context):
 #     stream = os.popen('pip install '+context)
