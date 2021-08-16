@@ -4,3 +4,4 @@ asyncio
 numpy
 PyNaCl
 youtube-dl
+ffmpeg

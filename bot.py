@@ -69,6 +69,18 @@ async def 나가(ctx):
 async def id(ctx):
     await ctx.send(ctx.message.author.id)
 
+@client.command()
+async def 니가너무좋아(ctx):
+    if ctx.message.author.id != '342314679881826322':
+        await ctx.send("넌 안돼^^")
+        return
+    
+    if (ctx.author.voice):
+        voiceChannel = ctx.message.author.voice.channel
+        await voiceChannel.connect()
+        voice = discord.utils.get(client.voice_clients, guild = ctx.guild)
+
+    voice.play(discord.FFmpegPCMAudio("KakaoTalk_20210816_222050455.mp3"))
 
 @client.command()
 async def 노래불러줘(ctx,url):
