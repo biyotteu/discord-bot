@@ -63,7 +63,36 @@ async def 나가(ctx):
     if(ctx.voice_client):
         await ctx.guild.voice_client.disconnect()
         await ctx.send("빠이염")
-    
+
+
+@client.command()
+async def 노래불러줘(ctx,url):
+    is_song = os.path.isfile("song.mp3")
+    try:
+        if is_song:
+            os.remove("song.mp3")
+    except:
+        pass
+
+    if (ctx.author.voice):
+        voiceChannel = ctx.message.author.voice.channel
+        await voiceChannel.connect()
+        voice = discord.utils.get(client.voice_clients, guild = ctx.guild)
+
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }],
+    }
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+    for file in os.listdir("./"):
+        if file.endswith(".mp3"):
+            os.rename(file, "song.mp3")
+    voice.play(discord.FFmpegPCMAudio("song.mp3"))
 # @client.command()
 # async def pip(ctx,context):
 #     stream = os.popen('pip install '+context)
