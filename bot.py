@@ -67,9 +67,9 @@ async def 나가(ctx):
 
 @client.command()
 async def id(ctx):
-    await ctx.message.author.id
+    await ctx.send(ctx.message.author.id)
 
-    
+
 @client.command()
 async def 노래불러줘(ctx,url):
     is_song = os.path.isfile("song.mp3")
