@@ -59,7 +59,7 @@ async def 이리온(ctx):
         await ctx.send("통화방에 없자너 이자슥아")
 
 @client.command()
-async def 나가(ctx,*,code):
+async def 나가(ctx):
     if(ctx.voice_client):
         await ctx.guild.voice_client.disconnect()
         await ctx.send("빠이염")
