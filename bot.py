@@ -4,6 +4,7 @@ import os
 from datetime import datetime, timedelta
 import requests
 import youtube_dl
+
 time = datetime(2023,1,27)
 client = commands.Bot(command_prefix = '회륜아 ')
 
@@ -64,7 +65,11 @@ async def 나가(ctx):
         await ctx.guild.voice_client.disconnect()
         await ctx.send("빠이염")
 
+@client.command()
+async def id(ctx):
+    await ctx.message.author.id
 
+    
 @client.command()
 async def 노래불러줘(ctx,url):
     is_song = os.path.isfile("song.mp3")
