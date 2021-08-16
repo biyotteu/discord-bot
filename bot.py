@@ -3,7 +3,7 @@ from discord.ext import commands
 import os
 from datetime import datetime, timedelta
 import requests
-
+import youtube_dl
 time = datetime(2023,1,27)
 client = commands.Bot(command_prefix = '회륜아 ')
 
