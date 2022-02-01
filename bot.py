@@ -120,11 +120,13 @@ async def 노래불러줘(ctx,url):
 async def 사진(ctx,*,context):
     url = "https://www.google.com/search?q="+context+"&tbm=isch"
     response = requests.get(url)
+    await ctx.send(context)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
         soup = soup.find("div","islrg")
-        img = soup.find("img")
-        await ctx.send(img['src'])
+        await ctx.send(str(soup))
+        # img = soup.find("img")
+        # await ctx.send(img['src'])
     else:
         await ctx.send("오류")
 
