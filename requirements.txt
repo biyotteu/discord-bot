@@ -5,3 +5,5 @@ numpy
 PyNaCl
 youtube-dl
 ffmpeg
+bs4
+beautifulsoup4

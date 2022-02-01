@@ -75,11 +75,12 @@ async def 니가너무좋아(ctx):
         await ctx.send("넌 안돼^^")
         return
     
+    v
     if (ctx.author.voice):
         voiceChannel = ctx.message.author.voice.channel
         await voiceChannel.connect()
         voice = discord.utils.get(client.voice_clients, guild = ctx.guild)
-
+T
     voice.play(discord.FFmpegPCMAudio("KakaoTalk_20210816_222050455.mp3"))
 
 @client.command()
@@ -114,5 +115,17 @@ async def 노래불러줘(ctx,url):
 # async def pip(ctx,context):
 #     stream = os.popen('pip install '+context)
 #     await ctx.send(stream.read())
+
+@client.command()
+async def 사진(ctx,*,context):
+    url = "https://www.google.com/search?q="+context+"&tbm=isch"
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        soup = soup.find("div","islrg")
+        img = soup.find("img")
+        await ctx.send(img['src'])
+    else:
+        await ctx.send("오류")
 
 client.run(os.environ['token'])
